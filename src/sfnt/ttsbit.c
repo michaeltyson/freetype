@@ -33,6 +33,7 @@
 
 #include "ttmtx.h"
 #include "pngshim.h"
+#include "emjc.h"
 
 
   /**************************************************************************
@@ -1561,6 +1562,17 @@
       error = FT_THROW( Unimplemented_Feature );
 #endif
       break;
+            
+    case FT_MAKE_TAG( 'e', 'm', 'j', 'c' ):
+#ifdef FT_CONFIG_OPTION_USE_EMJC
+      error = Load_SBit_EMJC(face->root.glyph,
+                             metrics,
+                             stream->cursor,
+                             glyph_end - glyph_start - 8 );
+#else
+    error = FT_THROW( Unimplemented_Feature );
+#endif
+    break;
 
     case FT_MAKE_TAG( 'j', 'p', 'g', ' ' ):
     case FT_MAKE_TAG( 't', 'i', 'f', 'f' ):

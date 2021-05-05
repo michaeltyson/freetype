@@ -272,7 +272,21 @@ FT_BEGIN_HEADER
    */
 /* #define FT_CONFIG_OPTION_USE_PNG */
 
-
+  /**************************************************************************
+   *
+   * EMJC bitmap support.
+   *
+   *   FreeType can load images in Apple's EMJC format, used with the iOS
+   *   Emoji font. This requires the external LZFSE library.
+   *
+   *   Define this macro if you want to enable this 'feature'.
+   *
+   *   If you use a build system like cmake or the `configure` script,
+   *   options set by those programs have precedence, overwriting the value
+   *   here with the configured one.
+   */
+/* #define FT_CONFIG_OPTION_USE_EMJC */
+  
   /**************************************************************************
    *
    * HarfBuzz support.
